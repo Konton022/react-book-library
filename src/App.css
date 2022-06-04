@@ -1,0 +1,11 @@
+:root {
+    --main-text-color: rgb(12, 116, 180);
+    --main-bg-color: rgb(240, 240, 240);
+}
+
+.app {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 98vh;
+    border-radius: 5px;
+}

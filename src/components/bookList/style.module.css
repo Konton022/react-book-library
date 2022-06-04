@@ -1,0 +1,11 @@
+button {
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
