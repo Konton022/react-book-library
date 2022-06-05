@@ -13,7 +13,14 @@ const BookForm = () => {
     function handleSubmit(e) {
         e.preventDefault();
         if (author && book) {
-            dispatch(addBook({ author: author, book: book, id: Date.now() }));
+            dispatch(
+                addBook({
+                    author: author,
+                    book: book,
+                    id: Date.now(),
+                    isEdit: false,
+                })
+            );
             setAuthor('');
             setBook('');
         } else {

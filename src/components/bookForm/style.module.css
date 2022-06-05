@@ -6,6 +6,7 @@ form {
     flex-wrap: wrap;
     /* border-bottom: 1px solid rgb(12, 116, 180); */
     padding: 2rem;
+    border-radius: 5px;
     box-shadow: 0 0 0.5rem rgb(181, 178, 178);
 }
 input {
