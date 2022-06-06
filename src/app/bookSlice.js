@@ -14,7 +14,11 @@ export const bookSlice = createSlice({
         editBook: () => {},
         deleteBook: (state, action) => {
             console.log(action.payload);
-            // state.books.filter((item) => item.id !== action.payload);
+            console.log('state.books', ...state.books);
+            const filteredBooks = state.books.filter(
+                (item) => item.id !== action.payload
+            );
+            console.log('filteredBooks', filteredBooks);
         },
     },
 });
