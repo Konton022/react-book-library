@@ -12,7 +12,10 @@ export const bookSlice = createSlice({
             state.books.push(action.payload);
         },
         editBook: () => {},
-        deleteBook: () => {},
+        deleteBook: (state, action) => {
+            console.log(action.payload);
+            // state.books.filter((item) => item.id !== action.payload);
+        },
     },
 });
 

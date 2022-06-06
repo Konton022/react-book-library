@@ -6,17 +6,22 @@ import styles from './style.module.css';
 const BookList = () => {
     const books = useSelector((state) => state.books.books);
     return (
-        <div className='bookList'>
-            {books.map((item) => {
-                return (
-                    <BookItem
-                        key={item.id}
-                        author={item.author}
-                        book={item.book}
-                        isEdit={item.isEdit}
-                    />
-                );
-            })}
+        <div className={styles.bookList}>
+            {books.length ? (
+                books.map((item) => {
+                    return (
+                        <BookItem
+                            key={item.id}
+                            author={item.author}
+                            book={item.book}
+                            isEdit={item.isEdit}
+                            id={item.id}
+                        />
+                    );
+                })
+            ) : (
+                <div className={styles.emptyList}> add new book...</div>
+            )}
         </div>
     );
 };

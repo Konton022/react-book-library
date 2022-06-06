@@ -1,11 +1,15 @@
-button {
-    display: inline-block;
-}
-ul {
-    list-style-type: none;
-}
-ul li {
+.bookList {
+    margin: 1rem auto;
+    padding: 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    box-shadow: 0 0 5px grey;
+    border-radius: 5px;
+}
+.emptyList {
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
