@@ -9,8 +9,8 @@
 }
 
 .bookImage {
-    width: 145px;
-    height: 205px;
+    width: 200px;
+    height: 250px;
     background-color: grey;
 }
 .bookTitle {
@@ -22,4 +22,17 @@
     font-size: 1.2rem;
     font-weight: 700;
     border-bottom: 1px solid gray;
+    
+}
+
+.bookActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: right;
+}
+.bookActions_pic {
+    display: inline-block;
+    height: 26px;
+
+
 }

@@ -9,14 +9,17 @@ const BookItem = ({ author, book, id, picData, isEdit }) => {
             </div>
             <div className={s.bookTitle}>{book}</div>
             <div className={s.bookAuthor}>{author}</div>
-            <div className='bookActions'>
+            <div className={s.bookActions}>
                 <img
                     src='https://img.icons8.com/glyph-neue/64/000000/edit.png'
                     alt='edit'
+                    className={s.bookActions_pic}
+                    
                 />
                 <img
                     src='https://img.icons8.com/windows/32/000000/delete-forever.png'
                     alt='delete'
+                    className={s.bookActions_pic}
                 />
             </div>
         </div>
