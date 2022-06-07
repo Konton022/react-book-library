@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    box-shadow: 0 0 5px grey;
+    box-shadow: 0 0 0.5rem rgb(181, 178, 178);
     border-radius: 5px;
 }
 .emptyList {

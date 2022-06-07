@@ -13,7 +13,7 @@ const BookList = () => {
                         <BookItem
                             key={item.id}
                             author={item.author}
-                            book={item.book}
+                            title={item.title}
                             isEdit={item.isEdit}
                             id={item.id}
                         />

@@ -11,19 +11,35 @@ export const bookSlice = createSlice({
         addBook: (state, action) => {
             state.books.push(action.payload);
         },
-        editBook: () => {},
+        setEditBook: (state, action) => {
+            const editedState = state.books.map(item => {
+                if(item.id === action.payload) {
+                    item.isEdit = !item.isEdit
+                }
+                return item
+            })
+            state.books = editedState;
+        },
+        submitEditBook(state, action){
+            const submitedState = state.books.map(item=>{
+                if(item.id === action.id) {
+                    item.author = action.author;
+                    item.title = action.title;
+                }
+                return item
+            })
+            state.books = submitedState;
+        },
         deleteBook: (state, action) => {
-            console.log(action.payload);
-            console.log('state.books', ...state.books);
-            const filteredBooks = state.books.filter(
+            const filteredState = state.books.filter(
                 (item) => item.id !== action.payload
-            );
-            console.log('filteredBooks', filteredBooks);
+            )
+            state.books = filteredState
         },
     },
 });
 
-export const { addBook, editBook, deleteBook } = bookSlice.actions;
+export const { addBook, setEditBook, deleteBook, submitEditBook } = bookSlice.actions;
 
 export const setBookStorege = () => {};
 export const getBookStorage = () => {};

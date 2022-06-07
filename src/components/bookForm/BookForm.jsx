@@ -16,7 +16,7 @@ const BookForm = () => {
             dispatch(
                 addBook({
                     author: author,
-                    book: book,
+                    title: book,
                     id: Date.now(),
                     isEdit: false,
                 })
