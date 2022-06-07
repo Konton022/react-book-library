@@ -12,34 +12,37 @@ export const bookSlice = createSlice({
             state.books.push(action.payload);
         },
         setEditBook: (state, action) => {
-            const editedState = state.books.map(item => {
-                if(item.id === action.payload) {
-                    item.isEdit = !item.isEdit
+            const editedState = state.books.map((item) => {
+                if (item.id === action.payload) {
+                    item.isEdit = !item.isEdit;
                 }
-                return item
-            })
+                return item;
+            });
             state.books = editedState;
         },
-        submitEditBook(state, action){
-            const submitedState = state.books.map(item=>{
-                if(item.id === action.id) {
-                    item.author = action.author;
-                    item.title = action.title;
+        submitEditBook(state, action) {
+            console.log('action', action);
+            const { id, author, title } = action.payload;
+            const submitedState = state.books.map((item) => {
+                if (item.id === id) {
+                    item.author = author;
+                    item.title = title;
                 }
-                return item
-            })
+                return item;
+            });
             state.books = submitedState;
         },
         deleteBook: (state, action) => {
             const filteredState = state.books.filter(
                 (item) => item.id !== action.payload
-            )
-            state.books = filteredState
+            );
+            state.books = filteredState;
         },
     },
 });
 
-export const { addBook, setEditBook, deleteBook, submitEditBook } = bookSlice.actions;
+export const { addBook, setEditBook, deleteBook, submitEditBook } =
+    bookSlice.actions;
 
 export const setBookStorege = () => {};
 export const getBookStorage = () => {};
