@@ -15,10 +15,8 @@
     background-color: grey;
 }
 .bookCoverImage {
-    /* width: 100%; */
     height: 100%;
     width: 100%;
-    border-radius: 5px;
     object-fit: cover;
 }
 .bookTitle {
