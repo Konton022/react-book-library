@@ -17,15 +17,18 @@ const BookItem = ({ author, title, id, picData, isEdit }) => {
     }
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(id, currentAuthor, currentTitle);
-        dispatch(
-            submitEditBook({
-                id: id,
-                author: currentAuthor,
-                title: currentTitle,
-            })
-        );
-        dispatch(setEditBook(id));
+        if (currentTitle && currentAuthor) {
+            dispatch(
+                submitEditBook({
+                    id: id,
+                    author: currentAuthor,
+                    title: currentTitle,
+                })
+            );
+            dispatch(setEditBook(id))
+        } else {
+            alert('add Book Title and Author then press Enter')
+        }
     }
     return (
         <div className={s.bookCard}>
@@ -33,18 +36,20 @@ const BookItem = ({ author, title, id, picData, isEdit }) => {
                 <img src='#' alt='' />
             </div>
             {isEdit ? (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={s.editForm}>
                     <input
                         type='text'
                         value={currentTitle}
                         onChange={(e) => setCurrentTitle(e.target.value)}
+                        className={s.editForm_input}
                     />
                     <input
                         type='text'
                         value={currentAuthor}
                         onChange={(e) => setCurrentAuthor(e.target.value)}
+                        className={s.editForm_input}
                     />
-                    <button type='submit'>+</button>
+                    <button type='submit' className={s.editButton}>+</button>
                 </form>
             ) : (
                 <>

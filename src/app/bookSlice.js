@@ -8,6 +8,9 @@ export const bookSlice = createSlice({
     name: 'books',
     initialState,
     reducers: {
+        setBooks: (state, action) => {
+            state.books = action.payload
+        },
         addBook: (state, action) => {
             state.books.push(action.payload);
         },
@@ -21,7 +24,6 @@ export const bookSlice = createSlice({
             state.books = editedState;
         },
         submitEditBook(state, action) {
-            console.log('action', action);
             const { id, author, title } = action.payload;
             const submitedState = state.books.map((item) => {
                 if (item.id === id) {
@@ -41,10 +43,7 @@ export const bookSlice = createSlice({
     },
 });
 
-export const { addBook, setEditBook, deleteBook, submitEditBook } =
+export const { setBooks, addBook, setEditBook, deleteBook, submitEditBook } =
     bookSlice.actions;
-
-export const setBookStorege = () => {};
-export const getBookStorage = () => {};
 
 export default bookSlice.reducer;
