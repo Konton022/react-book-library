@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { addBook } from '../../app/bookSlice';
 import { useDispatch } from 'react-redux';
 import styles from './style.module.css';
@@ -7,8 +7,9 @@ import styles from './style.module.css';
 const BookForm = () => {
     const [author, setAuthor] = useState('');
     const [book, setBook] = useState('');
+    const [imageCover, setImageCover] = useState('');
     const dispatch = useDispatch();
-    const [imageCover, setImageCover] = useState(null);
+    const ref = useRef();
     function handleSubmit(e) {
         e.preventDefault();
         if (author && book) {
@@ -18,19 +19,24 @@ const BookForm = () => {
                     title: book,
                     id: Date.now(),
                     isEdit: false,
+                    cover: imageCover,
                 })
             );
             setAuthor('');
             setBook('');
+            setImageCover('');
+            ref.current.value = '';
         } else {
             alert('add Author and Book title then press Enter!');
         }
     }
+
     async function handleUploadFile(event) {
         const file = event.target.files[0];
         const base64 = await convertToBase64(file);
         setImageCover(base64);
     }
+
     function convertToBase64(file) {
         return new Promise((resolve, reject) => {
             const fileReader = new FileReader();
@@ -69,9 +75,10 @@ const BookForm = () => {
                 />
             </div>
             <div className={styles.inputfield}>
-                <label htmlFor='picture'>Book picture</label>
+                <label htmlFor='imageCover'>Book cover</label>
                 <input
-                    id='picture'
+                    ref={ref}
+                    id='imageCover'
                     type='file'
                     name='booktitle'
                     className={styles.input}

@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { deleteBook, setEditBook, submitEditBook } from '../../app/bookSlice';
 
-const BookItem = ({ author, title, id, picData, isEdit }) => {
+const BookItem = ({ author, title, id, cover, isEdit }) => {
     const [currentTitle, setCurrentTitle] = useState(title);
     const [currentAuthor, setCurrentAuthor] = useState(author);
+    const imgHolderUrl = `https://imgholder.ru/200x250/8493a8/adb9ca&text=${currentTitle.toUpperCase()}&font=kelson`;
 
     const dispatch = useDispatch();
     function handleDelete(id) {
@@ -25,15 +26,19 @@ const BookItem = ({ author, title, id, picData, isEdit }) => {
                     title: currentTitle,
                 })
             );
-            dispatch(setEditBook(id))
+            dispatch(setEditBook(id));
         } else {
-            alert('add Book Title and Author then press Enter')
+            alert('add Book Title and Author then press Enter');
         }
     }
     return (
         <div className={s.bookCard}>
             <div className={s.bookImage}>
-                <img src='#' alt='' />
+                <img
+                    src={cover ? cover : imgHolderUrl}
+                    alt=''
+                    className={s.bookCoverImage}
+                />
             </div>
             {isEdit ? (
                 <form onSubmit={handleSubmit} className={s.editForm}>
@@ -49,7 +54,9 @@ const BookItem = ({ author, title, id, picData, isEdit }) => {
                         onChange={(e) => setCurrentAuthor(e.target.value)}
                         className={s.editForm_input}
                     />
-                    <button type='submit' className={s.editButton}>+</button>
+                    <button type='submit' className={s.editButton}>
+                        +
+                    </button>
                 </form>
             ) : (
                 <>

@@ -11,7 +11,14 @@
 
 .bookImage {
     height: 250px;
+    width: 200px;
     background-color: grey;
+}
+.bookCoverImage {
+    /* width: 100%; */
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
     object-fit: cover;
 }
 .bookTitle {
@@ -43,12 +50,10 @@
     margin-top: 0.7rem;
     border-radius: 0;
     border-bottom: 1px solid gray;
-    
 }
-.editButton{
+.editButton {
     visibility: hidden;
     height: 0;
-    
 }
 .editForm_input {
     padding: 0 0.2rem;

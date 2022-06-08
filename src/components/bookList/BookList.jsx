@@ -16,6 +16,7 @@ const BookList = () => {
                             title={item.title}
                             isEdit={item.isEdit}
                             id={item.id}
+                            cover={item.cover}
                         />
                     );
                 })
