@@ -8,8 +8,7 @@ const BookForm = () => {
     const [author, setAuthor] = useState('');
     const [book, setBook] = useState('');
     const dispatch = useDispatch();
-
-    // const [picture, setPicture] = useState(null);
+    const [imageCover, setImageCover] = useState(null);
     function handleSubmit(e) {
         e.preventDefault();
         if (author && book) {
@@ -26,6 +25,24 @@ const BookForm = () => {
         } else {
             alert('add Author and Book title then press Enter!');
         }
+    }
+    async function handleUploadFile(event) {
+        const file = event.target.files[0];
+        const base64 = await convertToBase64(file);
+        setImageCover(base64);
+    }
+    function convertToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+            fileReader.onerror = () => {
+                reject(fileReader.error);
+            };
+        });
     }
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -59,6 +76,7 @@ const BookForm = () => {
                     name='booktitle'
                     className={styles.input}
                     accept='.jpg, .jpeg, .png'
+                    onChange={(event) => handleUploadFile(event)}
                 />
             </div>
             <button type='submit' className={styles.button}>
