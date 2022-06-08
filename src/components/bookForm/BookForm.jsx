@@ -9,7 +9,8 @@ const BookForm = () => {
     const [book, setBook] = useState('');
     const [imageCover, setImageCover] = useState('');
     const dispatch = useDispatch();
-    const ref = useRef();
+    const ref = useRef(null);
+
     function handleSubmit(e) {
         e.preventDefault();
         if (author && book) {

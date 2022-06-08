@@ -1,4 +1,4 @@
-form {
+.form {
     color: dimgrey;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@ form {
     border-radius: 5px;
     box-shadow: 0 0 0.5rem rgb(181, 178, 178);
 }
-input {
+.input {
     display: block;
     font: inherit;
     font-size: 1.1rem;
@@ -19,14 +19,14 @@ input {
     padding: 0.4rem;
 }
 
-input[type='file'] {
+.input[type='file'] {
     font: inherit;
     border: none;
     background-color: lightgrey;
     box-sizing: border-box;
 }
 
-button {
+.button {
     display: block;
     height: 36.8px;
     font: inherit;
